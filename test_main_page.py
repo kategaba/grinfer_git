@@ -104,7 +104,7 @@ class TestRegistraion():
         page1 = CoursePage(browser)
         page1.delete_draft_course()
 
-    def test_author_can_send_course_to_moderation(self, browser):
+    def test_author_can_send_new_course_to_moderation(self, browser):
         page = MainPage(browser)
         page.open()
         page.author_login()
@@ -121,6 +121,14 @@ class TestRegistraion():
         page.log_out()
         page2 = BasePage(browser)
         page2.clean_cookie()
+
+    def test_author_can_send_draft_course_to_moderation(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.author_login()
+        page1 = CoursePage(browser)
+        page1.edit_draft_course()
+        page1.send_course_to_moderation()
 
     def test_moderator_can_approve_course(self, browser):
         page = MainPage(browser)

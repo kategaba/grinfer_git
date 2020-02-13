@@ -7,9 +7,9 @@ from locators import CoursePageLocators
 import time
 
 class BasePage():
-    def __init__(self, browser, url, timeout=10):
+    def __init__(self, browser, timeout=10):
         self.browser = browser
-        self.url = url
+        self.url = "https://foo:bar@test.grinfer.com/"
         self.browser.implicitly_wait(timeout)
         #self.browser.maximize_window()
         #self.browser.set_window_size(1920, 1080)

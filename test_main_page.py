@@ -3,17 +3,13 @@ from pages.base_page import BasePage
 from pages.course_page import CoursePage
 import pytest
 import time
-import requests
-from selenium import webdriver
-from requests.auth import HTTPBasicAuth
-from getpass import getpass
 
 link = "https://foo:bar@test.grinfer.com/"
 
 #@pytest.mark.need_review
 #pytest -v -m need_review
 
-class TestRegistraionCreationCourse():
+class TestRegistraion():
     def test_user_can_go_to_registration_page(self, browser):
         page = MainPage(browser, link)
         page.open()
@@ -62,8 +58,7 @@ class TestRegistraionCreationCourse():
         page.open()
         page.become_author()
 
-
-    #@pytest.mark.need_review
+    # @pytest.mark.need_review
     def test_author_can_create_draft_course(self, browser):
         page = MainPage(browser, link)
         page.open()
@@ -71,7 +66,7 @@ class TestRegistraionCreationCourse():
         page1 = CoursePage(browser, link)
         page1.create_draft_course()
 
-    #@pytest.mark.need_review
+    # @pytest.mark.need_review
     def test_author_can_edit_draft_course(self, browser):
         page = MainPage(browser, link)
         page.open()
@@ -93,7 +88,7 @@ class TestRegistraionCreationCourse():
         page1 = CoursePage(browser, link)
         page1.edit_lesson_draft_course()
 
-    #@pytest.mark.need_review
+    # @pytest.mark.need_review
     def test_author_can_delete_lesson_draft_course(self, browser):
         page = MainPage(browser, link)
         page.open()
@@ -101,8 +96,8 @@ class TestRegistraionCreationCourse():
         page1 = CoursePage(browser, link)
         page1.delete_lesson_draft_course()
 
-    @pytest.mark.parametrize('execution_number', range(20))
-    def test_author_can_delete_draft_course(self, browser, execution_number):
+    # @pytest.mark.parametrize('execution_number', range(20))
+    def test_author_can_delete_draft_course(self, browser):
         page = MainPage(browser, link)
         page.open()
         page.author_login()

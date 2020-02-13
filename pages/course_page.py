@@ -197,8 +197,9 @@ class CoursePage(BasePage):
 
     def delete_course(self):
         courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        time.sleep(2)
+        #self.browser.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
         dot_menu = self.browser.find_element(*CoursePageLocators.DOTS_MENU).click()
-        time.sleep(1)
         delete_course = self.browser.find_element(*CoursePageLocators.DELETE_COURSE).click()
         time.sleep(1)
         delete_confirm = self.browser.find_element(*CoursePageLocators.DELETE_CONFIRM).click()

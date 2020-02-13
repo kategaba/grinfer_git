@@ -13,7 +13,6 @@ class BasePage():
         self.browser.implicitly_wait(timeout)
         #self.browser.maximize_window()
         #self.browser.set_window_size(1920, 1080)
-        #size = self.browser.get_window_size()
 
 
     def open(self):
@@ -29,6 +28,9 @@ class BasePage():
 
     def find_element(self, locator, time=10):
         return WebDriverWait(self.browser, time).until(EC.element_to_be_clickable(locator))
+
+    def wait_element(self, locator, time=10):
+        return WebDriverWait(self.browser, time).until(EC.visibility_of_element_located(locator))
 
 
     def is_not_element_present(self, how, what, timeout=10):

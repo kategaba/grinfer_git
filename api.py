@@ -7,7 +7,7 @@ from pages.base_page import BasePage
 f = faker.Faker()
 email = f.email()
 name = f.name()
-#URL2 = "https://foo:bar@test.grinfer.com/api/auth/swagger-ui.html"
+URL2 = "https://foo:bar@test.grinfer.com/api/auth/swagger-ui.html"
 URL = "https://foo:bar@test.grinfer.com/api/auth/create"
 data = {"email": email,
         "externalAuthToken": "string",
@@ -18,7 +18,6 @@ data = {"email": email,
         "password": "QWEasd123",
         "rememberMe": 'true'}
 
-response = requests.post(url=URL, data=data)
-r_json = response.json()
-
-print(response.content)
+response = requests.get(URL2)
+#print(response.content)
+print(response.headers)

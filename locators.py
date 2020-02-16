@@ -32,6 +32,7 @@ class MainPageLocators():
     AVATAR_BUTTON_MENU = (By.XPATH, "//span[contains(@class, 'ant-avatar')]/..")
     SIGN_OUT = (By.XPATH, "//div[text()='Sign Out']")
     CLEAR_CACHE = (By.XPATH, "//*[@id='clearBrowsingDataConfirm']")
+    POPUP_LOGIN = (By.XPATH, "//span[@class='ant-notification-notice-message-single-line-auto-margin']/..")
 
 class CoursePageLocators():
     COURSES = (By.XPATH, "//div[text()='Courses']")

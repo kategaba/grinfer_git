@@ -31,18 +31,22 @@ class MainPage(BasePage):
         login_button = self.browser.find_element(*MainPageLocators.LOG_BUTTON).click()
         time.sleep(2)
         close_notification = self.browser.find_element(*CoursePageLocators.CLOSE_NOTIFICATION).click()
+        login_text = self.browser.find_element(*MainPageLocators.POPUP_LOGIN).text
+        assert login_text == "Logged in."
         assert self.is_element_present(*MainPageLocators.USER_LOGIN_TEXT), "No Become an Author text"
 
     def author_login(self):
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK).click()
         input_email = self.browser.find_element(*MainPageLocators.EMAIL)
-        input_email.send_keys("grinqauser22@mail.ru")
+        input_email.send_keys("grinuserqa22@mail.ru")
         input_password = self.browser.find_element(*MainPageLocators.PASSWORD)
         input_password.send_keys("QWEasd123")
         login_button = self.browser.find_element(*MainPageLocators.LOG_BUTTON).click()
         time.sleep(2)
-        close_notification = self.browser.find_element(*CoursePageLocators.CLOSE_NOTIFICATION).click()
-        assert self.is_element_present(*MainPageLocators.WELCOME_TEXT), "No welcome text"
+        login_text = self.browser.find_element(*MainPageLocators.POPUP_LOGIN).text
+        assert login_text == "Logged in."
+        #close_notification = self.browser.find_element(*CoursePageLocators.CLOSE_NOTIFICATION).click()
+        #assert self.is_element_present(*MainPageLocators.WELCOME_TEXT), "No welcome text"
 
     def user_registration(self):
         f = faker.Faker()

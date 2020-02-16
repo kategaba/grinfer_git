@@ -3,7 +3,6 @@ from pages.base_page import BasePage
 from pages.course_page import CoursePage
 import pytest
 import time
-import allure
 
 #link = "https://foo:bar@test.grinfer.com/"
 
@@ -26,16 +25,12 @@ class TestRegistraion():
         page = MainPage(browser)
         page.open()
         page.go_to_search_page()
-        attach = browser.get_screenshot_as_png()
-        allure.attach(attach, attachment_type=allure.attachment_type.PNG)
 
     #@pytest.mark.need_review
     def test_user_can_login(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_login()
-        attach = browser.get_screenshot_as_png()
-        allure.attach(attach, attachment_type=allure.attachment_type.PNG)
 
     @pytest.mark.need_review
     def test_author_can_login(self, browser):
@@ -85,6 +80,13 @@ class TestRegistraion():
         page.author_login()
         page1 = CoursePage(browser)
         page1.add_lesson_draft_course()
+
+    def test_author_can_edit_lesson_draft_course(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.author_login()
+        page1 = CoursePage(browser)
+        page1.edit_lesson_draft_course()
 
     # @pytest.mark.need_review
     def test_author_can_delete_lesson_draft_course(self, browser):

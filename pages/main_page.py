@@ -30,9 +30,9 @@ class MainPage(BasePage):
         input_password.send_keys("QWEasd123")
         login_button = self.browser.find_element(*MainPageLocators.LOG_BUTTON).click()
         time.sleep(2)
+        close_notification = self.browser.find_element(*CoursePageLocators.CLOSE_NOTIFICATION).click()
         login_text = self.browser.find_element(*MainPageLocators.POPUP_LOGIN).text
         assert login_text == "Logged in."
-        close_notification = self.browser.find_element(*CoursePageLocators.CLOSE_NOTIFICATION).click()
         assert self.is_element_present(*MainPageLocators.USER_LOGIN_TEXT), "No Become an Author text"
 
     def author_login(self):

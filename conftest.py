@@ -29,6 +29,7 @@ def browser(request):
         def fin():
             attach = browser.get_screenshot_as_png()
             allure.attach(attach, attachment_type=allure.attachment_type.PNG)
+            #logging.info("Closing webdriver instance")
             browser.quit()
     elif browser_name == "firefox":
         fp = webdriver.FirefoxProfile()

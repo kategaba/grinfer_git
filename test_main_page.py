@@ -81,13 +81,6 @@ class TestRegistraion():
         page1 = CoursePage(browser)
         page1.add_lesson_draft_course()
 
-    def test_author_can_edit_lesson_draft_course(self, browser):
-        page = MainPage(browser)
-        page.open()
-        page.author_login()
-        page1 = CoursePage(browser)
-        page1.edit_lesson_draft_course()
-
     # @pytest.mark.need_review
     def test_author_can_delete_lesson_draft_course(self, browser):
         page = MainPage(browser)

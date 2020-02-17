@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from locators import CoursePageLocators
 from locators import MainPageLocators
+from locators import PaymentLocators
 from .base_page import BasePage
 from .main_page import MainPage
 import time
@@ -269,3 +270,16 @@ class CoursePage(BasePage):
         time.sleep(2)
         hide_price = self.browser.find_element(*CoursePageLocators.UNHIDE_COURSE).click()
         time.sleep(2)
+
+    def user_buy_course(self):
+        open_course = self.browser.find_element(*CoursePageLocators.COURSE_TILE).click()
+        buy_now = self.browser.find_element(*CoursePageLocators.BUY_NOW).click()
+        time.sleep(2)
+        input_card_number = self.browser.find_element(*PaymentLocators.CARD_NUMBER)
+        input_card_number.send_keys("4242 4242 4242 4242")
+        input_exp_date = self.browser.find_element(*PaymentLocators.EXPIRE_DATE)
+        input_exp_date.send_keys("12/21")
+        input_cvc = self.browser.find_element(*PaymentLocators.CVC)
+        input_cvc.send_keys("123")
+
+

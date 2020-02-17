@@ -165,3 +165,10 @@ class TestRegistraion():
         page1 = CoursePage(browser)
         page1.delete_course()
 
+    def test_user_can_buy_course(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_registration()
+        page.search_test_course()
+        page1 = CoursePage(browser)
+        page1.user_buy_course()

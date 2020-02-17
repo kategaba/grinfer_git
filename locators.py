@@ -90,3 +90,11 @@ class CoursePageLocators():
     HIDE_COURSE = (By.XPATH, "//*[text()='Hide on marketplace']/..")
     UNHIDE_COURSE = (By.XPATH, "//*[text()='Show on marketplace']/..")
     COURSES_ON_REVIEW = (By.XPATH, "//*[text()='My Courses']")
+    BUY_NOW = (By.XPATH, "//span[text()='Buy Now']/..")
+
+class PaymentLocators():
+    CARD_NUMBER = (By.XPATH, "//iframe[@name='__privateStripeFrame15']/..")
+    INPUT_CARD_NUMBER = (By.XPATH, "//input[@aria-label='Credit or debit card number']")
+    EXPIRE_DATE = (By.XPATH, "//input[@aria-label='Credit or debit card expiration date']")
+    CVC = (By.XPATH, "//input[@aria-label='Credit or debit card CVC/CVV']")
+    COMPLETE_PAYMENT = (By.XPATH, "//span[text()='Complete Payment']/..")

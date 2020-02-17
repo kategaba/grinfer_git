@@ -5,6 +5,7 @@ from .base_page import BasePage
 import time
 import os
 import faker
+from selenium.webdriver.common.keys import Keys
 import random
 from selenium.webdriver.support.ui import Select
 
@@ -21,6 +22,11 @@ class MainPage(BasePage):
 
     def go_to_search_page(self):
         search_button = self.browser.find_element(*MainPageLocators.SEARCH_BUTTON).click()
+
+    def search_test_course(self):
+        search_button = self.browser.find_element(*MainPageLocators.SEARCH_BUTTON)
+        search_button.send_keys("Test course")
+        search_button.send_keys(Keys.ENTER)
 
     def user_login(self):
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK).click()

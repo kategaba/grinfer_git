@@ -21,7 +21,7 @@ def browser(request):
         options.add_argument("--incognito")
         options.add_argument("--window-size=1400,1080")
         #options.add_argument("--disable-notifications")
-        options.add_argument("--headless")
+        #options.add_argument("--headless")
         options.add_argument("--disable-gpu")
         options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
         print("\nstart chrome browser for test..")

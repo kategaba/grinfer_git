@@ -30,6 +30,7 @@ class MainPageLocators():
     AGREE_AUTHOR = (By.CSS_SELECTOR, ".ant-checkbox-input")
     COMPLETE = (By.XPATH, "//span[text()='Complete']/..")
     AVATAR_BUTTON_MENU = (By.XPATH, "//span[contains(@class, 'ant-avatar')]/..")
+    HAS_AVATAR_BUTTON_MENU = (By.XPATH, "//div[@src]")
     SIGN_OUT = (By.XPATH, "//div[text()='Sign Out']")
     CLEAR_CACHE = (By.XPATH, "//*[@id='clearBrowsingDataConfirm']")
     POPUP_LOGIN = (By.XPATH, "//span[@class='ant-notification-notice-message-single-line-auto-margin']/..")

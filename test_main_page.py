@@ -37,6 +37,15 @@ class TestRegistraion():
         page = MainPage(browser)
         page.open()
         page.author_login()
+        page.log_out()
+        page1 = BasePage(browser)
+        page1.clean_cookie()
+
+    def test_author_can_login_with_avatar(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.author_login_with_avatar()
+        page.log_out_with_avatar()
         page1 = BasePage(browser)
         page1.clean_cookie()
 
@@ -57,6 +66,12 @@ class TestRegistraion():
         page = MainPage(browser)
         page.open()
         page.become_author()
+
+    def test_user_become_author_without_avatar(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_login()
+        page.become_author_without_avatar()
 
     # @pytest.mark.need_review
     def test_author_can_create_draft_course(self, browser):

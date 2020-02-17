@@ -25,7 +25,7 @@ class MainPage(BasePage):
     def user_login(self):
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK).click()
         input_email = self.browser.find_element(*MainPageLocators.EMAIL)
-        input_email.send_keys("test01@mail.com")
+        input_email.send_keys("grinuserqa2@mail.ru")
         input_password = self.browser.find_element(*MainPageLocators.PASSWORD)
         input_password.send_keys("QWEasd123")
         login_button = self.browser.find_element(*MainPageLocators.LOG_BUTTON).click()
@@ -36,6 +36,19 @@ class MainPage(BasePage):
         #close_notification = self.browser.find_element(*CoursePageLocators.CLOSE_NOTIFICATION).click()
 
     def author_login(self):
+        login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK).click()
+        input_email = self.browser.find_element(*MainPageLocators.EMAIL)
+        input_email.send_keys("grinqauser22@mail.ru")
+        input_password = self.browser.find_element(*MainPageLocators.PASSWORD)
+        input_password.send_keys("QWEasd123")
+        login_button = self.browser.find_element(*MainPageLocators.LOG_BUTTON).click()
+        time.sleep(2)
+        login_text = self.browser.find_element(*MainPageLocators.POPUP_LOGIN).text
+        assert login_text == "Logged in."
+        #close_notification = self.browser.find_element(*CoursePageLocators.CLOSE_NOTIFICATION).click()
+        #assert self.is_element_present(*MainPageLocators.WELCOME_TEXT), "No welcome text"
+
+    def author_login_with_avatar(self):
         login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK).click()
         input_email = self.browser.find_element(*MainPageLocators.EMAIL)
         input_email.send_keys("grinuserqa22@mail.ru")
@@ -137,8 +150,43 @@ class MainPage(BasePage):
         complete = self.browser.find_element(*MainPageLocators.COMPLETE).click()
         time.sleep(5)
 
+    def become_author_without_avatar(self):
+        f = faker.Faker()
+        email = f.email()
+        name = f.name()
+        title = f.company()
+        reg_link = self.browser.find_element(*MainPageLocators.REG_LINK).click()
+        input_email = self.browser.find_element(*MainPageLocators.REG_EMAIL)
+        input_email.send_keys("auto_py_"+email)
+        input_fn = self.browser.find_element(*MainPageLocators.FIRST_NAME)
+        input_fn.send_keys(name)
+        input_ln = self.browser.find_element(*MainPageLocators.LAST_NAME)
+        input_ln.send_keys(name)
+        input_password = self.browser.find_element(*MainPageLocators.REG_PASSWORD)
+        input_password.send_keys("QWEasd123")
+        agree = self.browser.find_element(*MainPageLocators.AGREE).click()
+        reg_button = self.browser.find_element(*MainPageLocators.REG_BUTTON).click()
+        time.sleep(10)
+        become_author = self.browser.find_element(*MainPageLocators.BECOME_AUTHOR).click()
+        topic = self.browser.find_element(*MainPageLocators.TOPIC).click()
+        select_topic = self.browser.find_element(*MainPageLocators.SELECTED_TOPIC).click()
+        time.sleep(3)
+        subtopic = self.browser.find_element(*MainPageLocators.SUBTOPIC).click()
+        select_subtopic = self.browser.find_element(*MainPageLocators.SELECTED_SUBTOPIC).click()
+        job_title = self.browser.find_element(*MainPageLocators.JOB_TITLE)
+        job_title.send_keys(title)
+        time.sleep(5)
+        next = self.browser.find_element(*MainPageLocators.NEXT).click()
+        agree_author = self.browser.find_element(*MainPageLocators.AGREE_AUTHOR).click()
+        complete = self.browser.find_element(*MainPageLocators.COMPLETE).click()
+        time.sleep(5)
+
     def log_out(self):
         avatar_button = self.browser.find_element(*MainPageLocators.AVATAR_BUTTON_MENU).click()
+        sign_out = self.browser.find_element(*MainPageLocators.SIGN_OUT).click()
+
+    def log_out_with_avatar(self):
+        has_avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
         sign_out = self.browser.find_element(*MainPageLocators.SIGN_OUT).click()
 
     def moderator_login(self):

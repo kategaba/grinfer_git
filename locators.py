@@ -93,8 +93,7 @@ class CoursePageLocators():
     BUY_NOW = (By.XPATH, "//span[text()='Buy Now']/..")
 
 class PaymentLocators():
-    CARD_NUMBER = (By.XPATH, "//iframe[@name='__privateStripeFrame15']/..")
-    INPUT_CARD_NUMBER = (By.XPATH, "//input[@aria-label='Credit or debit card number']")
-    EXPIRE_DATE = (By.XPATH, "//input[@aria-label='Credit or debit card expiration date']")
-    CVC = (By.XPATH, "//input[@aria-label='Credit or debit card CVC/CVV']")
+    CARD_NUMBER = (By.XPATH, "//iframe[@name='__privateStripeFrame5']")
+    EXPIRE_DATE = (By.XPATH, "//iframe[@name='__privateStripeFrame6']")
+    CVC = (By.XPATH, "//iframe[@name='__privateStripeFrame7']")
     COMPLETE_PAYMENT = (By.XPATH, "//span[text()='Complete Payment']/..")

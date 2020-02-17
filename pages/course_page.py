@@ -272,14 +272,22 @@ class CoursePage(BasePage):
         time.sleep(2)
 
     def user_buy_course(self):
+        card_number = "4242424242424242"
+        exp_date = "12/21"
+        cvc = "123"
         open_course = self.browser.find_element(*CoursePageLocators.COURSE_TILE).click()
         buy_now = self.browser.find_element(*CoursePageLocators.BUY_NOW).click()
         time.sleep(2)
         input_card_number = self.browser.find_element(*PaymentLocators.CARD_NUMBER)
-        input_card_number.send_keys("4242 4242 4242 4242")
+        for ch in card_number:
+            input_card_number.send_keys(ch)
+            time.sleep(0.1)
+        time.sleep(1)
         input_exp_date = self.browser.find_element(*PaymentLocators.EXPIRE_DATE)
-        input_exp_date.send_keys("12/21")
+        input_exp_date.send_keys(exp_date)
         input_cvc = self.browser.find_element(*PaymentLocators.CVC)
-        input_cvc.send_keys("123")
+        input_cvc.send_keys(cvc)
+        complete_payment = self.browser.find_element(*PaymentLocators.COMPLETE_PAYMENT).click()
+        time.sleep(10)
 
 

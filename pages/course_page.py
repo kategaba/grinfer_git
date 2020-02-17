@@ -18,7 +18,10 @@ class CoursePage(BasePage):
         fake = Faker()
         course_title = fake.text()
         course_description = fake.text()
-        courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
+        #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
         time.sleep(2)
         create_new_course = self.browser.find_element(*CoursePageLocators.CREATE_NEW_COURSE).click()
         topic = self.browser.find_element(*CoursePageLocators.TOPIC).click()
@@ -76,7 +79,10 @@ class CoursePage(BasePage):
         fake = Faker()
         course_title = fake.text()
         course_description = fake.text()
-        courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
         dot_menu = self.browser.find_element(*CoursePageLocators.DOTS_MENU).click()
         edit_draft = self.browser.find_element(*CoursePageLocators.EDIT_DRAFT).click()
         edit_course_cover = self.browser.find_element(*CoursePageLocators.EDIT_COURSE_COVER).click()
@@ -107,7 +113,10 @@ class CoursePage(BasePage):
         time.sleep(2)
 
     def edit_lesson_draft_course(self):
-        courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
+        #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
         dot_menu = self.browser.find_element(*CoursePageLocators.DOTS_MENU).click()
         edit_draft = self.browser.find_element(*CoursePageLocators.EDIT_DRAFT).click()
         course_lessons_tab = self.browser.find_element(*CoursePageLocators.COURSE_LESSON).click()
@@ -135,7 +144,10 @@ class CoursePage(BasePage):
         time.sleep(2)
 
     def add_lesson_draft_course(self):
-        courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
+        #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
         dot_menu = self.browser.find_element(*CoursePageLocators.DOTS_MENU).click()
         edit_draft = self.browser.find_element(*CoursePageLocators.EDIT_DRAFT).click()
         course_lessons_tab = self.browser.find_element(*CoursePageLocators.COURSE_LESSON).click()
@@ -150,7 +162,10 @@ class CoursePage(BasePage):
         time.sleep(2)
 
     def delete_lesson_draft_course(self):
-        courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
+        #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
         dot_menu = self.browser.find_element(*CoursePageLocators.DOTS_MENU).click()
         edit_draft = self.browser.find_element(*CoursePageLocators.EDIT_DRAFT).click()
         course_lessons_tab = self.browser.find_element(*CoursePageLocators.COURSE_LESSON).click()
@@ -162,7 +177,10 @@ class CoursePage(BasePage):
         time.sleep(1)
 
     def delete_draft_course(self):
-        courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
+        #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
         dot_menu = self.browser.find_element(*CoursePageLocators.DOTS_MENU).click()
         time.sleep(1)
         delete_draft = self.browser.find_element(*CoursePageLocators.DELETE_DRAFT).click()
@@ -179,6 +197,10 @@ class CoursePage(BasePage):
         send_to_moderation = self.browser.find_element(*CoursePageLocators.SEND_TO_MODERATION).click()
 
     def moderator_approve_course(self):
+        avatar_button = self.browser.find_element(*MainPageLocators.AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_on_review = self.browser.find_element(*CoursePageLocators.COURSES_ON_REVIEW).click()
+        self.browser.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
         open_course = self.browser.find_element(*CoursePageLocators.COURSE_TILE).click()
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         approve = self.browser.find_element(*CoursePageLocators.APPROVE).click()
@@ -196,7 +218,10 @@ class CoursePage(BasePage):
         time.sleep(2)
 
     def delete_course(self):
-        courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
+        #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
         time.sleep(2)
         #self.browser.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
         dot_menu = self.browser.find_element(*CoursePageLocators.DOTS_MENU).click()
@@ -204,3 +229,43 @@ class CoursePage(BasePage):
         delete_course = self.browser.find_element(*CoursePageLocators.DELETE_COURSE).click()
         time.sleep(2)
         delete_confirm = self.browser.find_element(*CoursePageLocators.DELETE_CONFIRM).click()
+
+    def update_course_price(self):
+        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
+        #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        #time.sleep(2)
+        #self.browser.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+        dot_menu = self.browser.find_element(*CoursePageLocators.DOTS_MENU).click()
+        time.sleep(2)
+        update_price = self.browser.find_element(*CoursePageLocators.UPDATE_PRICE_BUTTON).click()
+        click_course_price = self.browser.find_element(*CoursePageLocators.COURSE_PRICE).click()
+        select_price = self.browser.find_element(*CoursePageLocators.SELECT_PRICE).click()
+        self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(2)
+        update_on_market = self.browser.find_element(*CoursePageLocators.UPDATE_ON_MARKET).click()
+
+    def hide_course(self):
+        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
+        #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        #time.sleep(2)
+        #self.browser.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+        dot_menu = self.browser.find_element(*CoursePageLocators.DOTS_MENU).click()
+        time.sleep(2)
+        hide_price = self.browser.find_element(*CoursePageLocators.HIDE_COURSE).click()
+        time.sleep(2)
+
+    def unhide_course(self):
+        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        time.sleep(1)
+        courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
+        #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()
+        #time.sleep(2)
+        #self.browser.find_element_by_tag_name('body').send_keys(Keys.PAGE_DOWN)
+        dot_menu = self.browser.find_element(*CoursePageLocators.DOTS_MENU).click()
+        time.sleep(2)
+        hide_price = self.browser.find_element(*CoursePageLocators.UNHIDE_COURSE).click()
+        time.sleep(2)

@@ -38,16 +38,12 @@ class TestRegistraion():
         page.open()
         page.author_login()
         page.log_out()
-        page1 = BasePage(browser)
-        page1.clean_cookie()
 
     def test_author_can_login_with_avatar(self, browser):
         page = MainPage(browser)
         page.open()
         page.author_login_with_avatar()
         page.log_out_with_avatar()
-        page1 = BasePage(browser)
-        page1.clean_cookie()
 
     #@pytest.mark.need_review
     def test_user_can_registration(self, browser):
@@ -65,19 +61,20 @@ class TestRegistraion():
     def test_user_become_author(self, browser):
         page = MainPage(browser)
         page.open()
-        page.become_author()
+        page.user_registration()
+        page.user_become_author()
 
     def test_user_become_author_without_avatar(self, browser):
         page = MainPage(browser)
         page.open()
-        page.user_login()
+        page.user_registration()
         page.become_author_without_avatar()
 
     # @pytest.mark.need_review
     def test_author_can_create_draft_course(self, browser):
         page = MainPage(browser)
         page.open()
-        page.author_login()
+        page.author_registration()
         page1 = CoursePage(browser)
         page1.create_draft_course()
 
@@ -115,7 +112,7 @@ class TestRegistraion():
     def test_author_can_send_new_course_to_moderation(self, browser):
         page = MainPage(browser)
         page.open()
-        page.author_login()
+        page.author_registration()
         page1 = CoursePage(browser)
         page1.create_draft_course()
         page1.send_course_to_moderation()
@@ -130,14 +127,6 @@ class TestRegistraion():
         page2 = BasePage(browser)
         page2.clean_cookie()
 
-    def test_author_can_send_draft_course_to_moderation(self, browser):
-        page = MainPage(browser)
-        page.open()
-        page.author_login()
-        page1 = CoursePage(browser)
-        page1.edit_draft_course()
-        page1.send_course_to_moderation()
-
     def test_moderator_can_approve_course(self, browser):
         page = MainPage(browser)
         page.open()
@@ -148,6 +137,26 @@ class TestRegistraion():
         page2 = BasePage(browser)
         page2.clean_cookie()
 
+    def test_author_can_update_course_price(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.author_login_with_avatar()
+        page1 = CoursePage(browser)
+        page1.update_course_price()
+
+    def test_author_can_hide_course(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.author_login_with_avatar()
+        page1 = CoursePage(browser)
+        page1.hide_course()
+
+    def test_author_can_unhide_course(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.author_login_with_avatar()
+        page1 = CoursePage(browser)
+        page1.unhide_course()
 
     def test_author_can_delete_course(self, browser):
         page = MainPage(browser)

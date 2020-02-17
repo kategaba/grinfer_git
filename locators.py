@@ -34,6 +34,7 @@ class MainPageLocators():
     SIGN_OUT = (By.XPATH, "//div[text()='Sign Out']")
     CLEAR_CACHE = (By.XPATH, "//*[@id='clearBrowsingDataConfirm']")
     POPUP_LOGIN = (By.XPATH, "//span[@class='ant-notification-notice-message-single-line-auto-margin']/..")
+    AVATAR_MENU_COURSES = (By.XPATH, "//*[text()='Courses']")
 
 class CoursePageLocators():
     COURSES = (By.XPATH, "//div[text()='Courses']")
@@ -84,3 +85,8 @@ class CoursePageLocators():
     DECLINE = (By.XPATH, "//span[text()='Decline']/..")
     COMMENT = (By.XPATH, "//textarea[@placeholder='Enter your comment']")
     DELETE_COURSE = (By.XPATH, "//div[text()='Delete course']/..")
+    UPDATE_PRICE_BUTTON = (By.XPATH, "//div[text()='Update Price Tier and Promo']/..")
+    UPDATE_ON_MARKET = (By.XPATH, "//span[text()='Update on market']/..")
+    HIDE_COURSE = (By.XPATH, "//*[text()='Hide on marketplace']/..")
+    UNHIDE_COURSE = (By.XPATH, "//*[text()='Show on marketplace']/..")
+    COURSES_ON_REVIEW = (By.XPATH, "//*[text()='My Courses']")

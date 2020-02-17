@@ -45,6 +45,7 @@ class MainPage(BasePage):
         time.sleep(2)
         login_text = self.browser.find_element(*MainPageLocators.POPUP_LOGIN).text
         assert login_text == "Logged in."
+        time.sleep(2)
         #close_notification = self.browser.find_element(*CoursePageLocators.CLOSE_NOTIFICATION).click()
         #assert self.is_element_present(*MainPageLocators.WELCOME_TEXT), "No welcome text"
 
@@ -58,6 +59,7 @@ class MainPage(BasePage):
         time.sleep(2)
         login_text = self.browser.find_element(*MainPageLocators.POPUP_LOGIN).text
         assert login_text == "Logged in."
+        time.sleep(2)
         #close_notification = self.browser.find_element(*CoursePageLocators.CLOSE_NOTIFICATION).click()
         #assert self.is_element_present(*MainPageLocators.WELCOME_TEXT), "No welcome text"
 
@@ -76,13 +78,15 @@ class MainPage(BasePage):
         input_password.send_keys("QWEasd123")
         agree = self.browser.find_element(*MainPageLocators.AGREE).click()
         reg_button = self.browser.find_element(*MainPageLocators.REG_BUTTON).click()
-        time.sleep(10)
+        time.sleep(2)
+        reg_text = self.browser.find_element(*MainPageLocators.POPUP_LOGIN).text
+        assert reg_text == "User account successfully created."
+
 
     def author_registration(self):
         f = faker.Faker()
         email = f.email()
         name = f.name()
-        #email = "test"+str(time.time())+"@testmail.com"
         title = f.company()
         reg_link = self.browser.find_element(*MainPageLocators.REG_LINK).click()
         subtopic_list = ['Academics', 'Arabic', 'English']
@@ -116,23 +120,9 @@ class MainPage(BasePage):
         complete = self.browser.find_element(*MainPageLocators.COMPLETE).click()
         time.sleep(2)
 
-    def become_author(self):
+    def user_become_author(self):
         f = faker.Faker()
-        email = f.email()
-        name = f.name()
         title = f.company()
-        reg_link = self.browser.find_element(*MainPageLocators.REG_LINK).click()
-        input_email = self.browser.find_element(*MainPageLocators.REG_EMAIL)
-        input_email.send_keys("auto_py_"+email)
-        input_fn = self.browser.find_element(*MainPageLocators.FIRST_NAME)
-        input_fn.send_keys(name)
-        input_ln = self.browser.find_element(*MainPageLocators.LAST_NAME)
-        input_ln.send_keys(name)
-        input_password = self.browser.find_element(*MainPageLocators.REG_PASSWORD)
-        input_password.send_keys("QWEasd123")
-        agree = self.browser.find_element(*MainPageLocators.AGREE).click()
-        reg_button = self.browser.find_element(*MainPageLocators.REG_BUTTON).click()
-        time.sleep(10)
         become_author = self.browser.find_element(*MainPageLocators.BECOME_AUTHOR).click()
         current_dir = os.path.abspath(os.path.dirname(__file__))
         file_path = os.path.join(current_dir, 'avatar.jpg')
@@ -148,25 +138,13 @@ class MainPage(BasePage):
         next = self.browser.find_element(*MainPageLocators.NEXT).click()
         agree_author = self.browser.find_element(*MainPageLocators.AGREE_AUTHOR).click()
         complete = self.browser.find_element(*MainPageLocators.COMPLETE).click()
-        time.sleep(5)
+        time.sleep(2)
+        reg_text = self.browser.find_element(*MainPageLocators.POPUP_LOGIN).text
+        assert reg_text == "Author profile successfully created."
 
     def become_author_without_avatar(self):
         f = faker.Faker()
-        email = f.email()
-        name = f.name()
         title = f.company()
-        reg_link = self.browser.find_element(*MainPageLocators.REG_LINK).click()
-        input_email = self.browser.find_element(*MainPageLocators.REG_EMAIL)
-        input_email.send_keys("auto_py_"+email)
-        input_fn = self.browser.find_element(*MainPageLocators.FIRST_NAME)
-        input_fn.send_keys(name)
-        input_ln = self.browser.find_element(*MainPageLocators.LAST_NAME)
-        input_ln.send_keys(name)
-        input_password = self.browser.find_element(*MainPageLocators.REG_PASSWORD)
-        input_password.send_keys("QWEasd123")
-        agree = self.browser.find_element(*MainPageLocators.AGREE).click()
-        reg_button = self.browser.find_element(*MainPageLocators.REG_BUTTON).click()
-        time.sleep(10)
         become_author = self.browser.find_element(*MainPageLocators.BECOME_AUTHOR).click()
         topic = self.browser.find_element(*MainPageLocators.TOPIC).click()
         select_topic = self.browser.find_element(*MainPageLocators.SELECTED_TOPIC).click()
@@ -179,7 +157,9 @@ class MainPage(BasePage):
         next = self.browser.find_element(*MainPageLocators.NEXT).click()
         agree_author = self.browser.find_element(*MainPageLocators.AGREE_AUTHOR).click()
         complete = self.browser.find_element(*MainPageLocators.COMPLETE).click()
-        time.sleep(5)
+        time.sleep(2)
+        reg_text = self.browser.find_element(*MainPageLocators.POPUP_LOGIN).text
+        assert reg_text == "Author profile successfully created."
 
     def log_out(self):
         avatar_button = self.browser.find_element(*MainPageLocators.AVATAR_BUTTON_MENU).click()

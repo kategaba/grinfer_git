@@ -172,3 +172,31 @@ class TestRegistraion():
         page.search_test_course()
         page1 = CoursePage(browser)
         page1.user_buy_course()
+
+    def test_guest_can_buy_course(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.search_test_course()
+        page1 = CoursePage(browser)
+        page1.guest_buy_course()
+
+    def test_user_start_course_after_purchase(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_registration()
+        page.search_test_course()
+        page1 = CoursePage(browser)
+        page1.user_buy_course()
+        page1.user_start_learning_course()
+        page1.user_start_course()
+
+    def test_user_complete_course(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_registration()
+        page.search_test_course()
+        page1 = CoursePage(browser)
+        page1.user_buy_course()
+        page1.user_start_learning_course()
+        page1.user_start_course()
+        page1.user_complete_course()

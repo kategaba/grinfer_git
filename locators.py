@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocators():
     LOGIN_LINK = (By.XPATH, "//div[text()='Sign in']")
-    EMAIL = (By.CSS_SELECTOR, "#form_email")
-    PASSWORD = (By.CSS_SELECTOR, "#form_password")
+    EMAIL = (By.CSS_SELECTOR, "#email")
+    PASSWORD = (By.CSS_SELECTOR, "#password")
     LOG_BUTTON = (By.XPATH, "//button[@type='submit']")
     REG_LINK = (By.XPATH, "//span[text()='Sign up']/..")
     WELCOME_TEXT = (By.XPATH, "//div[text()='Welcome on board']")

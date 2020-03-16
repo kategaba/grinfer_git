@@ -19,7 +19,7 @@ class CoursePage(BasePage):
         fake = Faker()
         course_title = fake.text()
         course_description = fake.text()
-        avatar_button = self.browser.find_element(*MainPageLocators.HAS_AVATAR_BUTTON_MENU).click()
+        avatar_button = self.browser.find_element(*MainPageLocators.AVATAR_BUTTON_MENU).click()
         time.sleep(1)
         courses_tab = self.browser.find_element(*MainPageLocators.AVATAR_MENU_COURSES).click()
         #courses_tab = self.browser.find_element(*CoursePageLocators.COURSES).click()

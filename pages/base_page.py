@@ -9,7 +9,7 @@ import time
 class BasePage():
     def __init__(self, browser, timeout=10):
         self.browser = browser
-        self.url = "https://foo:bar@test.grinfer.com/"
+        self.url = "https://foo:bar@dev.grinfer.com/"
         self.browser.implicitly_wait(timeout)
         #self.browser.maximize_window()
         #self.browser.set_window_size(1920, 1080)
@@ -17,7 +17,7 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
-        cookie = self.browser.find_element(*MainPageLocators.COOKIE).click()
+        #cookie = self.browser.find_element(*MainPageLocators.COOKIE).click()
 
     def is_element_present(self, how, what):
         try:
